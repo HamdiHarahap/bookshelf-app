@@ -1,0 +1,241 @@
+:root {
+	--black: #000000;
+	--dark: #1c1c1c;
+	--card: #111111;
+	--border: #1f1f1f;
+
+	--lime: #a3e635;
+	--lime-dark: #84cc16;
+	--lime-darker: #65a30d;
+
+	--gradient-lime: linear-gradient(
+		135deg,
+		#a3e635 0%,
+		#84cc16 50%,
+		#65a30d 100%
+	);
+
+	--text-primary: #f5f5f5;
+	--text-muted: #9ca3af;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+	background: var(--black);
+	color: var(--text-primary);
+	padding: 50px 20px;
+	min-height: 100vh;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+header h1 {
+	font-size: 34px;
+	font-weight: 700;
+	letter-spacing: -0.5px;
+	background: var(--gradient-lime);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+main {
+	max-width: 1100px;
+	margin: auto;
+}
+
+section {
+	margin-bottom: 60px;
+}
+
+section h2 {
+	font-size: 20px;
+	margin-bottom: 20px;
+	font-weight: 600;
+	padding-left: 12px;
+	border-left: 4px solid var(--lime);
+}
+
+form {
+	background: var(--card);
+	padding: 28px;
+	border-radius: 16px;
+	border: 1px solid var(--border);
+	box-shadow: 0 10px 40px rgba(163, 230, 53, 0.04);
+}
+
+form div {
+	margin-bottom: 18px;
+}
+
+label {
+	display: block;
+	font-size: 13px;
+	margin-bottom: 6px;
+	color: var(--text-muted);
+}
+
+input[type='text'],
+input[type='number'] {
+	width: 100%;
+	padding: 12px 14px;
+	border-radius: 10px;
+	border: 1px solid #1a1a1a;
+	background: var(--dark);
+	color: white;
+	font-size: 14px;
+	transition: 0.3s ease;
+}
+
+input:focus {
+	outline: none;
+	border: 1px solid var(--lime);
+	box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.15);
+}
+
+input[type='checkbox'] {
+	accent-color: var(--lime);
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+button {
+	padding: 12px 18px;
+	border-radius: 10px;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+
+#searchBookTitle {
+	margin-bottom: 14px;
+}
+
+#bookFormSubmit,
+#searchSubmit {
+	background: var(--gradient-lime);
+	color: #000;
+	width: 100%;
+}
+
+#bookFormSubmit:hover,
+#searchSubmit:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 25px rgba(163, 230, 53, 0.3);
+}
+
+#incompleteBookList,
+#completeBookList {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+}
+
+[data-testid='bookItem'] {
+	background: var(--card);
+	padding: 20px;
+	border-radius: 16px;
+	border: 1px solid var(--border);
+	transition: 0.3s ease;
+}
+
+[data-testid='bookItem']:hover {
+	border: 1px solid var(--lime);
+	transform: translateY(-6px);
+	box-shadow: 0 15px 35px rgba(163, 230, 53, 0.15);
+}
+
+[data-testid='bookItemTitle'] {
+	font-size: 17px;
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+
+[data-testid='bookItemAuthor'],
+[data-testid='bookItemYear'] {
+	font-size: 13px;
+	color: var(--text-muted);
+	margin-bottom: 4px;
+}
+
+[data-testid='bookItem'] > div {
+	margin-top: 14px;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+[data-testid='bookItem'] button {
+	flex: 1;
+	background: transparent;
+	border: 1px solid var(--lime);
+	color: var(--lime);
+}
+
+[data-testid='bookItem'] button:hover {
+	background: var(--lime);
+	color: #000;
+}
+
+.modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(4px);
+	z-index: 999;
+}
+
+.modal-content {
+	background: #111;
+	padding: 30px;
+	border-radius: 16px;
+	width: 100%;
+	max-width: 450px;
+	border: 1px solid rgba(163, 230, 53, 0.2);
+	box-shadow: 0 20px 50px rgba(163, 230, 53, 0.15);
+}
+
+.modal-actions {
+	margin-top: 20px;
+	display: flex;
+	gap: 10px;
+}
+
+.modal-actions button {
+	flex: 1;
+	background: linear-gradient(135deg, #a3e635, #65a30d);
+	color: #000;
+}
+
+#closeModal {
+	background: transparent;
+	border: 1px solid #a3e635;
+	color: #a3e635;
+}
+
+@media (max-width: 768px) {
+	body {
+		padding: 30px 16px;
+	}
+
+	header h1 {
+		font-size: 26px;
+	}
+
+	form {
+		padding: 20px;
+	}
+}
