@@ -30,17 +30,17 @@ function renderBooks(bookList = books) {
 		);
 
 		toggleButton.addEventListener('click', () => {
-			// Swal.fire({
-			// 	title: 'Apakah anda ingin mengubah status baca?',
-			// 	showCancelButton: true,
-			// 	icon: 'question',
-			// 	confirmButtonText: 'Iya',
-			// }).then((result) => {
-			// 	if (result.isConfirmed) {
-			// 		toggleReadStatus(book.id);
-			// 		Swal.fire('Berhasil', '', 'success');
-			// 	}
-			// });
+			Swal.fire({
+				title: 'Apakah anda ingin mengubah status baca?',
+				showCancelButton: true,
+				icon: 'question',
+				confirmButtonText: 'Iya',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					toggleReadStatus(book.id);
+					Swal.fire('Berhasil', '', 'success');
+				}
+			});
 			toggleReadStatus(book.id);
 		});
 
@@ -49,17 +49,17 @@ function renderBooks(bookList = books) {
 		);
 
 		deleteBtn.addEventListener('click', () => {
-			// Swal.fire({
-			// 	title: 'Apakah anda ingin mengubah menghapus buku?',
-			// 	showCancelButton: true,
-			// 	icon: 'question',
-			// 	confirmButtonText: 'Iya',
-			// }).then((result) => {
-			// 	if (result.isConfirmed) {
-			// 		deleteBook(book.id);
-			// 		Swal.fire('Berhasil', '', 'success');
-			// 	}
-			// });
+			Swal.fire({
+				title: 'Apakah anda ingin mengubah menghapus buku?',
+				showCancelButton: true,
+				icon: 'question',
+				confirmButtonText: 'Iya',
+			}).then((result) => {
+				if (result.isConfirmed) {
+					deleteBook(book.id);
+					Swal.fire('Berhasil', '', 'success');
+				}
+			});
 			deleteBook(book.id);
 		});
 
