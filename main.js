@@ -41,7 +41,6 @@ function renderBooks(bookList = books) {
 					Swal.fire('Berhasil', '', 'success');
 				}
 			});
-			toggleReadStatus(book.id);
 		});
 
 		const deleteBtn = bookElement.querySelector(
@@ -60,7 +59,6 @@ function renderBooks(bookList = books) {
 					Swal.fire('Berhasil', '', 'success');
 				}
 			});
-			deleteBook(book.id);
 		});
 
 		const editBtn = bookElement.querySelector(
